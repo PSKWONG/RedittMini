@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } 
 
 
 /*********** Import Internal Modules ************** */
-import Root from '../../component/root/RootComponent'
+import Root from '../root/rootContainer';
 
 
 

@@ -1,17 +1,22 @@
 import React from 'react'; 
 
 /*********** Import Internal Modules ************** */
-import RootComponent from '../../component/root';
+import RootComponent from '../../component/root/RootComponent'; 
+import useMenuController from './menuControl'; 
 
 
 
 const RootContainer = ()=>{
 
+    /* Menu Control*/
+    const menuController = useMenuController();
+
+
     return ( 
-        <>
-            <RootComponent /> 
-        </>
-    
+            <RootComponent 
+                menu={menuController}
+                msg="hi"
+            /> 
     ); 
 }
 

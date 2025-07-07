@@ -3,9 +3,13 @@ import React from 'react';
 /*********** Import Internal Modules ************** */
 import './root.css'; 
 import logo from './images/redditlogo.png'; 
+import arrowLeft from './images/arrowleft.png'; 
+import arrowRight from './images/arrowRight.png'; 
 
 
-const Root = ()=>{
+const Root = (props)=>{
+
+    const isMenuOverflow = props.menu.menuList.overflow; 
 
     return(
         <>
@@ -16,7 +20,13 @@ const Root = ()=>{
                     <span>Minimal</span>
                 </div>
                 <div className="searchingWrapper">Searching</div>
-                <div className="menuWrapper">menu</div>
+                <div className="menuWrapper">
+                    { isMenuOverflow && <img src={arrowLeft} alt="Move Left" className="slideIcon" onClick={props.menu.arrowLeft.action}/>}
+                    <ul ref={props.menu.menuList.reference}>
+                        {props.menu.menuList.data}
+                    </ul>
+                    {isMenuOverflow && <img src={arrowRight} alt="Move Right" className="slideIcon" onClick={props.menu.arrowRight.action} />}
+                </div>
             </div>
             <div>
                 content
