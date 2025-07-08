@@ -73,6 +73,7 @@ const useMenuController = () => {
             } else {
                 menuDOM.current.style.setProperty('--aligment', 'center');
                 setMenuList(menuData); 
+                removedList.current = []; 
             }
         }
 

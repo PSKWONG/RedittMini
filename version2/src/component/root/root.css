@@ -60,6 +60,14 @@
     grid-area: searching; 
 }
 
+.searchingWrapper{
+    display:flex;
+    flex-direction: row;
+    align-content:center; 
+    justify-content:center; 
+}
+
+
 /* Menu */
 
 .menuWrapper{
