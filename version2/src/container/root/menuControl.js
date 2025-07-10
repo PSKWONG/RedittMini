@@ -1,8 +1,9 @@
 import { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
+import {useDispatch} from 'react-redux'; 
 
 /******************Import Internal Data ********************** */
-
 import menuData from './data/subreddit.json';
+import {updatePageInfo, fetchPages} from '../../features/postDisplay/postSlice'; 
 
 const useMenuController = () => {
 
@@ -10,9 +11,10 @@ const useMenuController = () => {
     const [isOverflow, setIsOverFlow] = useState(false);
     const removedList = useRef([]);
     const menuDOM = useRef(null)
+    const dispatch = useDispatch(); 
 
 
-    /******** Arrow Control ****** */
+    /*************************************** Arrow Control ************************** */
     //Helper function on checking the Overflow Status 
     const checkingOverflow = (DOM) => {
         return DOM.scrollWidth > DOM.clientWidth
@@ -45,25 +47,36 @@ const useMenuController = () => {
 
     }, []);
 
-    /******** Menu Items ****** */
+    /****************************************** Menu Items ************************** */
+    
     const menuListItems = useCallback(() => {
 
-
+       
         if (menuList.length === 0) {
             return [];
         }
 
-        const menuItems = menuList.map(({ name, icon }, index) => {
-            return <li key={index}>
-                <img src={icon} alt={name} />
-                <span>{name}</span>
-            </li>
+        const menuItems = menuList.map(({ name, icon , keyword}, index) => {
+
+             //Helper function on Change the page 
+            const handleChangePage =(event)=>{
+                event.preventDefault(); 
+                dispatch(updatePageInfo({name,icon})); 
+                dispatch(fetchPages({type:'Page', keyword})); 
+            }
+
+            return (
+                <li key={index} onClick={handleChangePage}>
+                    <img src={icon} alt={name} />
+                    <span>{name}</span>
+                </li>
+            )
         })
 
         return menuItems;
 
 
-    }, [menuList])
+    }, [menuList, dispatch])
 
     useEffect(() => {
         const menuItemAligment = () => {

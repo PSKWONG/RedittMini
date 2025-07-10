@@ -9,18 +9,22 @@ const PostListComponent = (props)=>{
 
     const {pageInfo} = props; 
     const {postList} = props; 
+    const {pageLoading} = postList
 
     //Post Component 
     let postListContent; 
 
-    if(postList?.postList?.length === 0){
-        postListContent = <span>No post can be found</span>; 
-    }else{
+    if( postList?.postList?.length !== 0 && !pageLoading){
         postListContent = postList.postList.map((post)=>{
             return <PostComponent key={post.id} data={post} />          
         });
+    }else if(postList?.postList?.length === 0 && !pageLoading){
+        postListContent = <span>No post can be found</span>;
+    }else{
+        postListContent = <></>
     }
 
+    
 
     return (
         <>
@@ -37,7 +41,7 @@ const PostListComponent = (props)=>{
             }
 
             <div className={styles.postListWrapper}>
-                <LoadingComponent condition={postList.pageLoading} />
+                <LoadingComponent condition={pageLoading} />
                 {postListContent}
             </div>
         </>

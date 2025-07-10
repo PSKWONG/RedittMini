@@ -3,7 +3,6 @@
   grid-template-rows: 120px 1fr; 
   min-height:100vh;
   box-sizing:border-box;
-  overflow:hidden
 }
 
 /* Variable */ 
@@ -23,7 +22,6 @@
     top: 0px;
     left: 0px;
     z-index: 10;
-    overflow:hidden;
 
 }
 
@@ -156,7 +154,6 @@
   flex-basis:200px;
   flex-grow:1; 
   box-sizing:content-box; 
-  overflow:hidden;
 }
 
 .contentWrapper{

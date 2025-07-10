@@ -9,17 +9,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 //Async Thunk 
 export const fetchPages = createAsyncThunk(
     'post/fetchSubPages',
-    async({type, keywords}, thunkAPI)=>{
+    async({type, keyword}, thunkAPI)=>{
 
         let fetchURL; 
 
         //Get the APi site according to the type 
         switch(type){
             case "searching":
-                fetchURL = `https://www.reddit.com/search.json?q=${encodeURIComponent(keywords)}`;
+                fetchURL = `https://www.reddit.com/search.json?q=${encodeURIComponent(keyword)}`;
                 break;
             default:
-                fetchURL = `https://www.reddit.com/r/${keywords}/.json`;
+                fetchURL = `https://www.reddit.com/r/${keyword}/.json`;
                 break;
         }
 

@@ -18,7 +18,7 @@ const usePostPageListController = ()=>{
 
     /**** Default Post List  ***/
     useEffect(()=>{
-        dispatch(fetchPages({type:'', keywords:'popular'})); 
+        dispatch(fetchPages({type:'', keyword:'popular'})); 
     }, [dispatch]); 
 
     // Helper function on extrating the postList 

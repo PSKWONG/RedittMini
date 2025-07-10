@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Outlet } from 'react-router-dom';
 
 /*********** Import Internal Modules ************** */
 import './root.css'; 
@@ -6,7 +7,7 @@ import logo from './images/redditlogo.png';
 import arrowLeft from './images/arrowleft.png'; 
 import arrowRight from './images/arrowRight.png'; 
 import SearchingContainer from '../../container/searching/searchingContainer'; 
-import PostDisplayContainer from '../../features/postDisplay/postListContainer'; 
+
 
 
 const Root = (props)=>{
@@ -33,7 +34,7 @@ const Root = (props)=>{
                 </div>
             </div>
             <div className="contentWrapper">
-                <PostDisplayContainer />
+                <Outlet />
             </div>
         </>
     )

@@ -23,7 +23,7 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
 
-    position: sticky;
+    position: fixed;
     top:50vh;
 }
 
