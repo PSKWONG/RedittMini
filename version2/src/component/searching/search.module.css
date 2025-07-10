@@ -21,7 +21,7 @@ form input {
 }
 
 form button{
-    background-image: url(../../../public//assets//images/searching.png);
+    background-image: url(./images/searching.png);
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;

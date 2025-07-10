@@ -1,6 +1,11 @@
 
+import {useDispatch} from 'react-redux'; 
+import {fetchPages, updatePageInfo} from '../../features/postDisplay/postSlice'; 
+import icon from '../../component/searching/images/searching.png'; 
 
 const useSubmitHandler = (searchingTerm) => {
+
+    const dispatch = useDispatch(); 
 
 
     const handleSubmit = async (event) => {
@@ -18,6 +23,7 @@ const useSubmitHandler = (searchingTerm) => {
         /* Replaced by the Page slice */ 
 
         //Fetch Searching Result
+        /*
         let fetchingResponse ; 
         
         try {
@@ -27,20 +33,20 @@ const useSubmitHandler = (searchingTerm) => {
             const json = await response.json();
             fetchingResponse = json.data;
 
+
+
             //Temp Checking
-            console.log('response', fetchingResponse); 
+            //console.log('response', fetchingResponse); 
 
         } catch (error) {
             console.log('Fail in fetching post by terms');
             throw error;
         }
+            */
 
-
-        
-
-
-
-        
+        //Update the App Store 
+        dispatch(updatePageInfo({name:'Searching', icon})); 
+        dispatch(fetchPages({type:"searching", keyword:searchingTerm})); 
 
     }
     
