@@ -42,7 +42,9 @@ const postInitialState = {
         pageIcon: '',
     },
     pagePost: [],
-    postIndex: 0,
+    postDetail: {
+        postData: {}, 
+    },
     isLoading: false,
     hasError: false,
     errorMesaage: ''
@@ -68,6 +70,9 @@ const postSlice = createSlice({
                 state.errorMesaage = 'Fail to update the Page info'; 
             }
 
+        }, 
+        updatePostDetail: (state,action)=>{
+            state.postDetail.postData = action.payload; 
         }
     },
     extraReducers: (builder)=>{
@@ -89,6 +94,7 @@ const postSlice = createSlice({
     selectors:{
         selectPageInfo: (state) => state.pageInfo,
         selectPagePost: (state) => state.pagePost,
+        selectPostDetail: (state) => state.postDetail,
         selectPageLoading: (state) => state.isLoading,
         selectPageError: (state) => state.hasError,
     }
@@ -100,13 +106,14 @@ const postSlice = createSlice({
 export default postSlice.reducer; 
 
 //Export Actions 
-export const { updatePageInfo } = postSlice.actions; 
+export const { updatePageInfo, updatePostDetail } = postSlice.actions; 
 
 //Export Store State
 export const {
     selectPagePost,
     selectPageLoading,
     selectPageError,
-    selectPageInfo
+    selectPageInfo,
+    selectPostDetail
 } = postSlice.selectors ;
 

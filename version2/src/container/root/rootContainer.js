@@ -15,7 +15,6 @@ const RootContainer = ()=>{
     return ( 
             <RootComponent 
                 menu={menuController}
-                msg="hi"
             /> 
     ); 
 }

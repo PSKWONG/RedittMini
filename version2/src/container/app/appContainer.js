@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } 
 /*********** Import Internal Modules ************** */
 import Root from '../root/rootContainer';
 import PostDisplayContainer from '../../features/postDisplay/postListContainer';
+import PostDetailContainer from '../../features/postDisplay/postDetailContainer';
 
 
 
@@ -20,7 +21,7 @@ const App = ()=>{
     const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Root />} >
         <Route index element = {<PostDisplayContainer />} />
-       
+        <Route path='detail' element = {<PostDetailContainer />} />
     </Route>
     ));
 

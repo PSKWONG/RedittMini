@@ -6,9 +6,12 @@ import styles from './post.module.css';
 import MediaPlayerCompenet from './MeidaPlayerComponent'; 
 
 const PostComponent = React.memo(( props )=>{
-    const {title, author, duration, numOfComment} = props.data 
+    const {title, author, duration, numOfComment} = props.data ; 
+    const handlePostDetailButton  = props.action; 
+
+
     return (
-                <div className={styles.postWrapper}>
+                <div className={styles.postWrapper} onClick={(event)=>{handlePostDetailButton(event, props.data)}}>
                     <h2> {title} </h2>
                     <div>
                         <MediaPlayerCompenet data={props.data}/>

@@ -9,14 +9,15 @@ const PostListComponent = (props)=>{
 
     const {pageInfo} = props; 
     const {postList} = props; 
-    const {pageLoading} = postList
+    const {pageLoading} = postList;
+    const {btnAction} = postList;
 
     //Post Component 
     let postListContent; 
 
     if( postList?.postList?.length !== 0 && !pageLoading){
         postListContent = postList.postList.map((post)=>{
-            return <PostComponent key={post.id} data={post} />          
+            return <PostComponent key={post.id} data={post} action={btnAction} />          
         });
     }else if(postList?.postList?.length === 0 && !pageLoading){
         postListContent = <span>No post can be found</span>;
