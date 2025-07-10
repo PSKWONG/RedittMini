@@ -14,6 +14,9 @@ const useSubmitHandler = (searchingTerm) => {
             return;
         }
 
+
+        /* Replaced by the Page slice */ 
+
         //Fetch Searching Result
         let fetchingResponse ; 
         

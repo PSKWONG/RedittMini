@@ -6,6 +6,7 @@ import logo from './images/redditlogo.png';
 import arrowLeft from './images/arrowleft.png'; 
 import arrowRight from './images/arrowRight.png'; 
 import SearchingContainer from '../../container/searching/searchingContainer'; 
+import PostDisplayContainer from '../../features/postDisplay/postListContainer'; 
 
 
 const Root = (props)=>{
@@ -31,8 +32,8 @@ const Root = (props)=>{
                     {isMenuOverflow && <img src={arrowRight} alt="Move Right" className="slideIcon" onClick={props.menu.arrowRight.action} />}
                 </div>
             </div>
-            <div>
-                content
+            <div className="contentWrapper">
+                <PostDisplayContainer />
             </div>
         </>
     )

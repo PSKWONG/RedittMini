@@ -1,0 +1,54 @@
+
+/* Page Info */ 
+.pageInfoWrapper{
+    flex-basis: 45px;
+    flex-grow:0; 
+}
+
+.pageInfoWrapper{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:center;
+}
+
+.pageInfoWrapper div {
+
+    background-color: #56494C;
+    padding: 10px;
+    color: white;
+    font-weight: 500;
+    border: solid 2px #F4F1DE;
+    border-radius: 0px 10px 10px 0px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.pageInfoWrapper div{
+    display: flex;
+    flex-direction:row; 
+    flex-wrap:nowrap; 
+    gap:10px;
+}
+
+.pageInfoWrapper img{
+    border-radius: 100%;
+    width: 20px;
+}
+
+/* Post List */ 
+.postListWrapper {
+    flex-basis: 200px;
+    flex-grow:1; 
+}
+
+.postListWrapper {
+    display:flex; 
+    flex-direction: column; 
+    flex-wrap:wrap; 
+    justify-content:start;
+}
+
+.postListWrapper:has(:only-child) {
+  justify-content: center;
+}

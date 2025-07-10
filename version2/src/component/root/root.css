@@ -1,6 +1,8 @@
 #root{
   display: grid;
-  grid-template-rows: 100px 1fr; 
+  grid-template-rows: 120px 1fr; 
+  min-height:100vh;
+  box-sizing:border-box;
 }
 
 /* Variable */ 
@@ -68,8 +70,9 @@
 }
 
 
-/* Menu */
 
+
+/* Menu */
 .menuWrapper{
     grid-area: menu; 
 }
@@ -146,5 +149,12 @@
     white-space:nowrap;
 }
 
+/* Content */
+
+.contentWrapper{
+  display: flex; 
+  flex-direction: row;
+  justify-content:start;  
+}
 
 

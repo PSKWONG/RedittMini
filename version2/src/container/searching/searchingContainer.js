@@ -16,7 +16,6 @@ const SearchingContainer = ()=>{
     return < SearchingComponent  
         input = {inputControl}
         submit = {handleSubmit}
-    
     />
 
 }
