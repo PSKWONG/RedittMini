@@ -2,6 +2,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 //------------------------Import Internal Componenet ----------------------
+import menuDB from '../../container/root/data/subreddit.json'; 
 
 //Helper Function 
 
@@ -36,12 +37,15 @@ export const fetchPages = createAsyncThunk(
 
 
 //Construction of State Template ( Initiate Value )
+
 const postInitialState = {
     pageInfo: {
-        pageName: '',
-        pageIcon: '',
+        pageName:'' ,
+        pageIcon:'' ,
     },
-    pagePost: [],
+    pagePost: {
+        data:[]
+    },
     postDetail: {
         postData: {}, 
     },
@@ -71,9 +75,11 @@ const postSlice = createSlice({
             }
 
         }, 
+        
         updatePostDetail: (state,action)=>{
             state.postDetail.postData = action.payload; 
         }
+        
     },
     extraReducers: (builder)=>{
         builder
@@ -88,12 +94,12 @@ const postSlice = createSlice({
             .addCase(fetchPages.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasError = false;
-                state.pagePost = action.payload?.children || [] 
+                state.pagePost.data = action.payload?.children || [] 
             })
     },
     selectors:{
         selectPageInfo: (state) => state.pageInfo,
-        selectPagePost: (state) => state.pagePost,
+        selectPagePost: (state) => state.pagePost.data,
         selectPostDetail: (state) => state.postDetail,
         selectPageLoading: (state) => state.isLoading,
         selectPageError: (state) => state.hasError,

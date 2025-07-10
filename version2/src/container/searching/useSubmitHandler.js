@@ -1,11 +1,16 @@
 
+/************ Import External Components **************** */
 import {useDispatch} from 'react-redux'; 
-import {fetchPages, updatePageInfo} from '../../features/postDisplay/postSlice'; 
+import {useNavigate} from 'react-router-dom'; 
+
+/************ Import Internal Components **************** */
+import {updatePageInfo} from '../../features/postDisplay/postSlice'; 
 import icon from '../../component/searching/images/searching.png'; 
 
 const useSubmitHandler = (searchingTerm) => {
 
     const dispatch = useDispatch(); 
+    const navigate = useNavigate();
 
 
     const handleSubmit = async (event) => {
@@ -21,7 +26,7 @@ const useSubmitHandler = (searchingTerm) => {
 
         //Update the App Store 
         dispatch(updatePageInfo({name:'Searching', icon})); 
-        dispatch(fetchPages({type:"searching", keyword:searchingTerm})); 
+        navigate(`/searching/${searchingTerm}`); 
 
     }
     

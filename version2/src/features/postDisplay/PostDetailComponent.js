@@ -13,26 +13,31 @@ const PostDetailComponent = React.memo(( props )=>{
     const {linkToComment} = props.data
 
     return (
-                <div className={styles.postWrapper}>
-                    <h2> {title} </h2>
-                    <div className={styles.extradata}>
-                       <span>Posted by <strong> {author} </strong> </span>
-                       <span>&#8226;</span>
-                       <span>{duration} ago</span>
-                       <span>&#8226;</span>
-                       <span>{numOfComment} comment</span>
-                    </div>
-
+                <div className={styles.postDetailWrapper}>
                     <div>
-                        <MediaPlayerCompenet data={props.data}/>
-                        {
-                            isText
-                            &&
-                            <p>
-                                {textContent}
-                            </p>
-                        }
+                        <h2> {title} </h2>
+                        <div className={styles.extradata}>
+                            <span>Posted by <strong> {author} </strong> </span>
+                            <span>&#8226;</span>
+                            <span>{duration} ago</span>
+                            <span>&#8226;</span>
+                            <span>{numOfComment} comment</span>
+                        </div>
+                        <div>
+                            <MediaPlayerCompenet data={props.data}/>
+                            {
+                                isText
+                                &&
+                                <p>
+                                    {textContent}
+                                </p>
+                            }
+                        </div>
+
                     </div>
+                    
+
+                    
                     <div>
                         Comment 
 

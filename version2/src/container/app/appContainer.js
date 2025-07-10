@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom'; 
-
-
+import { Navigate } from 'react-router-dom';
 
 /*********** Import Internal Modules ************** */
 import Root from '../root/rootContainer';
@@ -20,7 +19,9 @@ const App = ()=>{
     /******  Routing *******/
     const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Root />} >
-        <Route index element = {<PostDisplayContainer />} />
+        <Route index element = {<Navigate to="/page/popular" replace />} />
+        <Route path='/searching/:keyword' element = {<PostDisplayContainer />} />
+        <Route path='/page/:keyword' element = {<PostDisplayContainer />} />
         <Route path='detail' element = {<PostDetailContainer />} />
     </Route>
     ));

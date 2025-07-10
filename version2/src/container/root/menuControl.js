@@ -3,7 +3,8 @@ import {useDispatch} from 'react-redux';
 
 /******************Import Internal Data ********************** */
 import menuData from './data/subreddit.json';
-import {updatePageInfo, fetchPages} from '../../features/postDisplay/postSlice'; 
+import {updatePageInfo} from '../../features/postDisplay/postSlice'; 
+import {useNavigate} from 'react-router-dom'
 
 const useMenuController = () => {
 
@@ -12,6 +13,7 @@ const useMenuController = () => {
     const removedList = useRef([]);
     const menuDOM = useRef(null)
     const dispatch = useDispatch(); 
+    const navigate = useNavigate(); 
 
 
     /*************************************** Arrow Control ************************** */
@@ -62,7 +64,7 @@ const useMenuController = () => {
             const handleChangePage =(event)=>{
                 event.preventDefault(); 
                 dispatch(updatePageInfo({name,icon})); 
-                dispatch(fetchPages({type:'Page', keyword})); 
+                navigate(`/page/${keyword}`);
             }
 
             return (
@@ -76,7 +78,7 @@ const useMenuController = () => {
         return menuItems;
 
 
-    }, [menuList, dispatch])
+    }, [menuList, dispatch, navigate])
 
     useEffect(() => {
         const menuItemAligment = () => {
