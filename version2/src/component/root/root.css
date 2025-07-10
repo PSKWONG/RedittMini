@@ -3,6 +3,7 @@
   grid-template-rows: 120px 1fr; 
   min-height:100vh;
   box-sizing:border-box;
+  overflow:hidden
 }
 
 /* Variable */ 
@@ -13,7 +14,6 @@
 /* Header */
 
 .headerwrapper{
-    height: 100%; 
     background-color: #F4F1DE;
     box-sizing: border-box;
     border-bottom-right-radius: var(--cornerRadis);
@@ -23,11 +23,13 @@
     top: 0px;
     left: 0px;
     z-index: 10;
+    overflow:hidden;
+
 }
 
 .headerwrapper{
     display:grid; 
-    grid-template-columns: 200px 1fr ;
+    grid-template-columns: auto 1fr ;
     grid-template-rows: repeat(2, 1fr);  
     grid-template-areas:
         "logo searching"
@@ -150,6 +152,12 @@
 }
 
 /* Content */
+.contentWrapper{
+  flex-basis:200px;
+  flex-grow:1; 
+  box-sizing:content-box; 
+  overflow:hidden;
+}
 
 .contentWrapper{
   display: flex; 
@@ -157,4 +165,9 @@
   justify-content:start;  
 }
 
+@media only screen and (max-width:450px){
+    .logoWrapper span{
+        display:none;
+    }
+}
 

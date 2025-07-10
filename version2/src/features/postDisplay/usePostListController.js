@@ -29,6 +29,8 @@ const usePostPageListController = ()=>{
             const {kind} = post ; 
             const {data} = post; 
             return ({
+                //List Key 
+                id:data.id,
                 //Filter Creteria 
                 kind,
                 valid: !data.over_18,
