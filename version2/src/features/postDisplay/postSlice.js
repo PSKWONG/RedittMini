@@ -35,7 +35,6 @@ export const fetchPages = createAsyncThunk(
 )
 
 
-
 //Construction of State Template ( Initiate Value )
 
 const postInitialState = {
@@ -47,7 +46,7 @@ const postInitialState = {
         data:[]
     },
     postDetail: {
-        postData: {}, 
+        postData: {}
     },
     isLoading: false,
     hasError: false,

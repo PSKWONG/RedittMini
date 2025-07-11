@@ -118,12 +118,88 @@
     box-sizing:content-box;
 }
 
+.postDetailWrapper{
+    display:flex; 
+    flex-wrap:wrap;
+    flex-direction:row; 
+    gap: 20px;
+}
+
 .postDetailWrapper h2{
     text-align: left;
     font-weight: 500;
     color: #FF6542;
     margin:0px;
 }
+
+.postDetail{
+    flex-basis:300px;
+    flex-grow:6; 
+}
+
+.commentWrapper{
+    flex-basis:300px;
+    flex-grow:4; 
+}
+
+.commentWrapper{
+    border-radius:15px;
+    border-bottom-right-radius: 0px;
+    border:2px solid black;
+    background-color: rgba(248, 225, 199, 0.6);
+    background:url(./images/bulletin-board-background.jpg); 
+    box-sizing:border-box;
+    min-height:fit-content;
+}
+
+.commentWrapper{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column; 
+    justify-content:start; 
+}
+
+.header {
+   flex-basis:auto;
+   flex-grow:0;
+}
+
+.header {
+    background:white;
+    padding:10px;
+    border:5px solid black;
+    border-left:0;
+    border-right:0;
+    padding:10px;
+    margin-top:10px;
+}
+
+.header {
+   display:flex;
+   flex-direction: row; 
+   flex-wrap:wrap;
+   align-items:baseline;
+   justify-content:space-between;
+}
+
+
+.header h1 {
+    font-size:3em;
+    font-weight:600;
+    margin:0px;
+}
+
+.header h1 span{
+    font-size:0.5em;
+    font-weight:300;
+}
+
+.header span strong {
+    color: #FF6542;
+}
+
+
+
 
 
 
@@ -181,6 +257,11 @@
     .postDetailWrapper {
         margin: 2.5vh 10vw;
     }
+
+    .postDetailWrapper {
+        flex-direction:row;
+    }
+
 
 
 

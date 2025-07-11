@@ -1,0 +1,41 @@
+
+
+/************** Comment Container****************/
+.commentContainer{
+    flex-basis:50vh; 
+    flex-grow:1;
+}
+
+.commentContainer{
+    padding:10px;
+    overflow-y:auto;
+}
+
+.commentContainer{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:start;
+    gap:20px;
+}
+
+/************** Comment ****************/
+
+.comment{
+    background-color: rgba(206, 205, 205, 0.9);
+    border-radius:5px;
+    border:1px solid  rgba(158, 158, 158, 0.8);
+    padding:5px;
+
+}
+
+.header{
+    font-size:0.8em;
+}
+
+.body{
+    background-color:rgba(255, 255, 255, 0.8);
+    padding:5px;
+    border-radius:5px;
+
+}
