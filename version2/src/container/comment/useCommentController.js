@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-import { timeCount } from '../../features/postDisplay/postUtilities';
+import {extractInformation} from './commentUtilies'; 
+
 
 
 const useCommentController = ({ postID, data}) => {
@@ -14,45 +15,16 @@ const useCommentController = ({ postID, data}) => {
     useEffect(() => {
 
         console.log("Passed Post ID - Hook ", postID); 
+        console.log("Passed Comment data  - Hook ", data); 
 
-        
-        
-        //Helper function on extracting information 
-        const extractInformation = (list) => {
-
-            if (list.length === 0) {
-                return
-            }
-
-            //Extract response Data
-            list.forEach(({ kind, data }) => {
-                if (kind === 't1') {
-                    const extratedData = (
-                        {
-                            // Identification
-                            id: data.id,
-
-                            //Comment
-                            author: data.author,
-                            body: data.body,
-                            duration: timeCount(data.created),
-
-                            //Replies
-                            reply: data.replies?.data?.children ?? [],
-
-                        }
-                    );
-                    commentMap.current.set(data.id, extratedData)
-                } else if (kind === 'more') {
-                    moreCommentData.current = data;
-                }
-            })
-
-            //Set the commentList for data rendering
-            setCommentList([...commentMap.current.values()]);
+        //Helper function on updating the State
+        const updateState= ({t1Map, moreMap})=>{
+            commentMap.current = t1Map ; 
+            moreCommentData.current = moreMap; 
+            setCommentList([...t1Map.values()]); 
             setIsLoading(false); 
         }
-
+        
         //Helper function on fetch and update RAW comment data 
         const fetchRawCommentData = async () => {
             const fetchURL = `https://www.reddit.com/comments/${postID}.json`;
@@ -69,7 +41,10 @@ const useCommentController = ({ postID, data}) => {
                 console.log("Response", response )
 
                 //Extract information 
-                extractInformation(response); 
+                const extractedInfo = extractInformation(response); 
+
+                //set the array of data into the state 
+                updateState(extractedInfo); 
 
             } catch (error) {
                 console.log("Fail to retrieve the comment of post id of ", postID);
@@ -77,27 +52,35 @@ const useCommentController = ({ postID, data}) => {
             }
         }
 
+        //Helper function on fetch and update RAW comment data 
+        const extractReplyData = (data)=>{
+            const extractedInfo = extractInformation(data); 
+
+            //set the array of data into the state 
+            updateState(extractedInfo); 
+        }
+
+
+        //Determine which function should execute depends on the source of data
         if (postID) {
             fetchRawCommentData();
         }else if(data){
-            extractInformation(data);
+            extractReplyData(data);
         }
 
-        return setIsLoading(true); 
+        //return setIsLoading(true); 
 
     }, [postID, data])
-    
+
 
     //Testing function 
-
-    
     useEffect(() => {
         console.log('Update on raw comment data', commentList);
     }, [commentList])
 
 
 
-     return {commentList, isLoading } ;
+     return {commentList, isLoading} ;
 
 }
 
