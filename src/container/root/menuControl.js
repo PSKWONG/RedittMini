@@ -1,10 +1,10 @@
 import { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
-import {useDispatch} from 'react-redux'; 
+import { useDispatch } from 'react-redux';
 
 /******************Import Internal Data ********************** */
 import menuData from './data/subreddit.json';
-import {updatePageInfo} from '../../features/postDisplay/postSlice'; 
-import {useNavigate} from 'react-router-dom'
+import { updatePageInfo } from '../../features/postDisplay/postSlice';
+import { useNavigate } from 'react-router-dom'
 
 const useMenuController = () => {
 
@@ -12,8 +12,8 @@ const useMenuController = () => {
     const [isOverflow, setIsOverFlow] = useState(false);
     const removedList = useRef([]);
     const menuDOM = useRef(null)
-    const dispatch = useDispatch(); 
-    const navigate = useNavigate(); 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
     /*************************************** Arrow Control ************************** */
@@ -23,11 +23,10 @@ const useMenuController = () => {
     }
 
     //Helper function to initate a oberver
-    const observer = new ResizeObserver((entries) => {
-        for (let entry of entries) {
-            setIsOverFlow(checkingOverflow(entry.target))
-        }
-    });
+    const observer = useRef(null);
+
+
+
 
     //Check the overflow status before the rendering 
     useLayoutEffect(() => {
@@ -41,29 +40,38 @@ const useMenuController = () => {
 
     //Checking the overflow status when size changing
     useEffect(() => {
+
+        observer.current = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+                setIsOverFlow(checkingOverflow(entry.target))
+            }
+        });
+
         if (menuDOM) {
-            observer.observe(menuDOM.current);
+            observer.current.observe(menuDOM.current);
         }
 
-        return () => observer.disconnect();
+        return () => {
+            if (observer.current) observer.current.disconnect();
+        };
 
-    }, [observer]);
+    }, []);
 
     /****************************************** Menu Items ************************** */
-    
+
     const menuListItems = useCallback(() => {
 
-       
+
         if (menuList.length === 0) {
             return [];
         }
 
-        const menuItems = menuList.map(({ name, icon , keyword}, index) => {
+        const menuItems = menuList.map(({ name, icon, keyword }, index) => {
 
-             //Helper function on Change the page 
-            const handleChangePage =(event)=>{
-                event.preventDefault(); 
-                dispatch(updatePageInfo({name,icon})); 
+            //Helper function on Change the page 
+            const handleChangePage = (event) => {
+                event.preventDefault();
+                dispatch(updatePageInfo({ name, icon }));
                 navigate(`/page/${keyword}`);
             }
 
@@ -87,8 +95,8 @@ const useMenuController = () => {
                 menuDOM.current.style.setProperty('--aligment', 'start');
             } else {
                 menuDOM.current.style.setProperty('--aligment', 'center');
-                setMenuList(menuData); 
-                removedList.current = []; 
+                setMenuList(menuData);
+                removedList.current = [];
             }
         }
 
