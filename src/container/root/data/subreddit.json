@@ -1,0 +1,42 @@
+ [
+        {
+            "name": "POPULAR",
+            "keyword": "popular",
+            "icon": "https://cdn-icons-png.flaticon.com/512/5978/5978092.png"
+        },
+        {
+            "name": "Science",
+            "keyword": "science",
+            "icon": "https://styles.redditmedia.com/t5_mouw/styles/communityIcon_xtjipkhhefi41.png"
+        },
+        {
+            "name": "Jack Skellington",
+            "keyword": "jackskellington",
+            "icon": "https://styles.redditmedia.com/t5_30g19/styles/communityIcon_523vfbuif4v31.jpg"
+        },
+        {
+            "name": "Bristol",
+            "keyword": "bristol",
+            "icon": "https://styles.redditmedia.com/t5_2r52c/styles/communityIcon_zdwx5ehw2u6c1.jpg?format=pjpg&s=1c735a4478dc3e1d566bc7903dde9b44c4a0951a"
+        },
+        {
+            "name": "Final Fantasy VII",
+            "keyword": "FinalFantasyVII",
+            "icon": "https://styles.redditmedia.com/t5_2tezb/styles/communityIcon_zzitpmzv5qn41.png"
+        },
+        {
+            "name": "Japan Travel",
+            "keyword": "JapanTravel",
+            "icon": "https://b.thumbs.redditmedia.com/KpNn8_Uu1kR6wlp8yGujNG5duDfxVX7MRJCK1V0T7hc.png"
+        },
+        {
+            "name": "Baldurs Gate 3",
+            "keyword": "BaldursGate3",
+            "icon": "https://styles.redditmedia.com/t5_12967t/styles/communityIcon_rh7ocpigb9t51.png"
+        },
+        {
+            "name": "Manchester United",
+            "keyword": "ManchesterUnited",
+            "icon": "https://styles.redditmedia.com/t5_2r3io/styles/communityIcon_ijg3ga7j22851.png"
+        }
+    ]
