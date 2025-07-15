@@ -4,17 +4,16 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom';
 //------------------------Import Internal Componenet ----------------------
-import './App.css';
-import { Root } from '../component/root/root.js';
-import { PostWrapper } from '../features/post/postWrapper.js';
-import { CommentWrapper } from '../features/comment/commentWrapper.js';
+import '../../component/app/style/App.css';
+import { Root } from '../../component/root/root.js'
+import { PostWrapper } from '../../features/post/postWrapper.js';
+import { CommentWrapper } from '../../features/comment/commentWrapper.js';
 
 ////////////////////////////Routing//////////////////////
 const appRouter = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />} >
     <Route index element = {<PostWrapper />} />
     <Route path='comment' element={ <CommentWrapper /> } />
-
   </Route>
 ));
 

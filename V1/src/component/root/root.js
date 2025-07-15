@@ -11,7 +11,6 @@ export function Root() {
         <div className="App">
             <HeaderComponent />
             <Outlet />  
-            
         </div>
     )
 }

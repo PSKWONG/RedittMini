@@ -1,0 +1,41 @@
+
+form{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap:nowrap; 
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    max-width: 50vw;
+    line-height: 1.85em;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 25px;
+    outline: none;
+    outline-color: transparent;
+    outline-width: 0px;
+    border: 1px solid #847E89;
+    color: #847E89;
+}
+
+form button{
+    background-image: url(./images/searching.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display:inline-flexbox;
+}
+
+
+
+@media only screen and (max-width: 450px){
+    input {
+        max-width: 25vw;
+    } 
+}
