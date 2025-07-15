@@ -8,7 +8,7 @@ import ReplyContainer from  '../../container/comment/replyContainer';
 
 const CommentComponent = React.memo((props)=>{
 
-    const {list, isLoading, replyControl}= props
+    const {list, isLoading}= props
     const isEmptyList = list.length === 0
 
     // Conditional Rendering 

@@ -1,7 +1,6 @@
 import React from 'react'; 
 
 /********* Import External Component ********/
-import {useDispatch, useSelector } from 'react-redux';
 
 
 

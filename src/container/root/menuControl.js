@@ -47,7 +47,7 @@ const useMenuController = () => {
 
         return () => observer.disconnect();
 
-    }, []);
+    }, [observer]);
 
     /****************************************** Menu Items ************************** */
     
