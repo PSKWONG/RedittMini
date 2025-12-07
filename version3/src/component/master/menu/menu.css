@@ -1,0 +1,92 @@
+/* Menu */
+
+/* Style for menuWRapper */
+.menuWrapper{
+
+
+    background-color: #353535;
+    box-sizing:border-box; 
+    border-bottom-right-radius: var(--cornerRadis);
+    border-bottom-left-radius: var(--cornerRadis);
+    padding: 5px;
+
+    width:100vw;
+    overflow:hidden;
+
+    display: flex; 
+    flex-direction:row;
+    flex-wrap:nowrap; 
+}
+
+
+/* Style for Arrows */
+.menuWrapper .controlIcon{
+    width:40px;
+    flex-basis:35px;
+    flex-grow:0;
+    display:none;
+    cursor:pointer; 
+}
+
+.menuWrapper.overflow .controlIcon{
+    display:block;
+}
+
+.menuWrapper .controlIcon.left{
+    transform:rotate(180deg); 
+}
+
+.menuWrapper .disableIcon{
+    filter:grayscale(100%);
+    cursor:default; 
+}
+
+
+/* Style for Menu Items  */
+.menuWrapper ul{
+    flex-basis: 50px;
+    flex-grow:1; 
+    overflow:hidden; 
+    margin:0;
+    padding:0;
+
+    display: flex; 
+    flex-direction:row;
+    flex-wrap:nowrap; 
+    justify-content:center;
+    gap:50px;
+}
+
+.menuWrapper.overflow ul{
+    justify-content:flex-start;
+}
+
+.menuWrapper ul{
+    --aligment: center; 
+}
+
+.menuWrapper li{
+    list-style: none;
+    cursor:pointer;
+    color:#fffce7;
+
+    flex-basis:50px;
+    flex-grow:0;
+}
+
+.menuWrapper li{
+    display:flex; 
+    flex-direction:row; 
+    flex-wrap:nowrap; 
+    align-items:center;
+    gap:5px;
+}
+
+.menuWrapper li img {
+    height:30px;
+    border-radius: 100%;
+}
+
+.menuWrapper li span {
+    white-space:nowrap;
+}

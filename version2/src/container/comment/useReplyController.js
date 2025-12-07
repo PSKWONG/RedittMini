@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { extractInformation } from './commentUtilies';
 
 const useReplyController = (data) => {
 

@@ -2,7 +2,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 //------------------------Import Internal Componenet ----------------------
-import menuDB from '../../container/root/data/subreddit.json'; 
 
 //Helper Function 
 

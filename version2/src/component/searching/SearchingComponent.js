@@ -1,6 +1,7 @@
 import React from 'react';
 
-import styles from './search.module.css'; 
+//Import internal modules 
+import './search.css';
 
 const SearchingComponent = (props) => {
 
