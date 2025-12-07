@@ -2,7 +2,7 @@
 
 /* Style for menuWRapper */
 .menuWrapper{
-
+    grid-area: menu; 
 
     background-color: #353535;
     box-sizing:border-box; 
@@ -16,12 +16,14 @@
     display: flex; 
     flex-direction:row;
     flex-wrap:nowrap; 
+    align-items:center;
 }
 
 
 /* Style for Arrows */
 .menuWrapper .controlIcon{
     width:40px;
+    height:40px;
     flex-basis:35px;
     flex-grow:0;
     display:none;

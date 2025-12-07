@@ -1,0 +1,59 @@
+/* Searching */
+
+.searchingWrapper {
+
+    grid-area: searching;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+
+form {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+
+    flex-basis: 200px;
+    flex-grow: 1;
+
+    line-height: 1.85em;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 25px;
+    outline: none;
+    outline-color: transparent;
+    outline-width: 0px;
+    border: 1px solid #847E89;
+    color: #847E89;
+}
+
+body.desktop .searchingWrapper input,
+body.tablet .searchingWrapper input {
+    max-width: 30vw !important;
+}
+
+
+form button {
+    background-image: url(./images/searching.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: inline-flexbox;
+}
+
+

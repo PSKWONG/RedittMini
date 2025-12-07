@@ -1,0 +1,23 @@
+/* Logo Styles */
+.logoWrapper {
+    grid-area: logo;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logoWrapper img {
+    width: 70px;
+}
+
+.logoWrapper img+span {
+    font-weight: 700;
+    color: #FF6542;
+}
+
+/* Responsive Style */
+body.mobile .logoWrapper span {
+    display: none;
+}

@@ -9,7 +9,7 @@ const MenuComponent = (props) => {
     //Get props Data
     const { data, actions } = props;
     const { menuWrapperDOM, isOverflow } = data;
-    const { handleLeftArrow, handleRightArrow } = actions;
+    const { handMenuItems } = actions;
 
     //Menu Items Content 
     const menuItems = data.menuList.map((item) => {
@@ -30,11 +30,11 @@ const MenuComponent = (props) => {
 
     return (
         <div className={`menuWrapper ${isOverflow ? 'overflow' : ''} `} >
-            <img src={arrow} alt={`Move Left`} className={`controlIcon left`} onClick={handleLeftArrow} />
+            <img id={`removeMenuItem`} src={arrow} alt={`Move Left`} className={`controlIcon left`} onClick={handMenuItems} />
             <ul ref={menuWrapperDOM} >
                 {menuItems}
             </ul>
-            <img src={arrow} alt={`Move Left`} className={`controlIcon`} onClick={handleRightArrow}/>
+            <img id={`addMenuItem`} src={arrow} alt={`Move Left`} className={`controlIcon`} onClick={handMenuItems}/>
 
         </div>
     )

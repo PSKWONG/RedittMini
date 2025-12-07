@@ -1,0 +1,50 @@
+
+
+#root{
+  display: grid;
+  grid-template-rows: 120px 1fr; 
+  min-height:100vh;
+  box-sizing:border-box;
+}
+
+
+/* Variable */ 
+.headerwrapper {
+    --cornerRadis: 15px;
+}
+
+
+/* Header Styles */ 
+
+.headerwrapper{
+    background-color: #F4F1DE;
+    box-sizing: border-box;
+    border-bottom-right-radius: var(--cornerRadis);
+    border-bottom-left-radius: var(--cornerRadis);
+    box-shadow: 0px 8px rgba(136, 136, 136, 0.53);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+
+    display:grid; 
+    grid-template-columns: auto 1fr ;
+    grid-template-rows: repeat(2, 1fr);  
+    grid-template-areas:
+        "logo searching"
+        "menu menu" ;
+
+}
+
+
+/* Content Style*/
+.contentWrapper{
+    width:100%; 
+    box-sizing:content-box; 
+}
+
+.contentWrapper{
+    display: flex; 
+    flex-direction: row;
+    justify-content:start;  
+}
