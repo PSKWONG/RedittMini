@@ -1,0 +1,79 @@
+/* Post Wrapper */
+.postWrapper {
+
+    max-height: calc(100vh - 120px);
+    background-color: white;
+    border: solid 3px rgba(37, 37, 37, 0.93);
+    border-radius: 25px 25px 0px 25px;
+    padding: 15px 15px;
+    cursor: pointer;
+    box-sizing: inherit;
+
+    display: flex;
+    flex-direction:column; 
+    flex-wrap:nowrap; 
+    justify-content:space-between; 
+    gap: 15px;
+
+}
+
+
+.postWrapper:hover {
+    box-shadow: 0px 0px 15px #56494C;
+
+}
+
+.postWrapper h2 {
+    text-align: left;
+    font-weight: 500;
+    color: #FF6542;
+    margin: 0px;
+    
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Post Content */ 
+.postContentWrapper{
+    flex-basis:0px;
+    flex-grow:1;
+}
+
+/* Extra Data  */
+.extradata {
+    border-top: 1px dashed #56494C;
+    color: #56494C;
+    text-align: left;
+    font-size: 0.85em;
+}
+
+.extradata {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+
+
+/* Responsive Style  */
+
+:global(body.desktop) .postWrapper,
+:global(body.tablet) .postWrapper {
+
+    flex-basis: 200px !important;
+    flex-grow: 1 !important;
+
+    min-height: 20vh;
+    transition: transform 0.5s ease;
+
+}
+
+:global(body.desktop) .postWrapper:hover {
+    transform: scale(1.2);
+}
+
+:global(body.tablet) .postWrapper:hover {
+    transform: scale(1.05);
+}

@@ -1,26 +1,26 @@
 
 
-const reditFetch = async (req, context) => {
+const commentFetch = async (req, context) => {
 
     try {
 
         /* Get information  from query string 
-            @(?keyword=popular)
-            @(?type=page / type =search)
+            @(?id=postID)
         */
         const urlParams = new URL(req.url).searchParams;
-        const type = urlParams.get("type") || "searching";
-        const keyword = urlParams.get("keyword") || "popular";
+        const postID = urlParams.get("id");
 
         //Fetch Information from Redit 
         const baseURL = `https://www.reddit.com`;
-        const query = type === "searching" ? `/search.json?q=${encodeURIComponent(keyword)}` : `/r/${keyword}/.json`;
+        const query = `/comments/${postID}.json`;
 
         const response = await fetch(`${baseURL}${query}`);
         const data = await response.json();
-        const pageData = data?.data?.children
 
-        return new Response(JSON.stringify(pageData), {
+        //The comment located at the second object of the response
+        const commentData = data[1]?.data?.children;
+
+        return new Response(JSON.stringify(commentData), {
             status: 200,
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -45,4 +45,4 @@ const reditFetch = async (req, context) => {
 
 };
 
-export default reditFetch; 
+export default commentFetch; 

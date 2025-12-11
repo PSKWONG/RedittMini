@@ -5,12 +5,12 @@ import './search.css';
 const SearchingComponent = (props) => {
 
     //Searching Input 
-    const { handleInputChange, handleInputFocus } = props.actions; 
+    const { handleInputChange, handleInputFocus, handleSubmit } = props.actions; 
     const {term} = props.data
 
 
     return (
-        <form onSubmit={props.submit}> 
+        <form onSubmit={handleSubmit}> 
             <input
                 type="text"
                 value={term}

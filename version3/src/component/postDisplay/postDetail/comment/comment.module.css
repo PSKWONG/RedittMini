@@ -1,0 +1,65 @@
+
+
+/************** Comment Container****************/
+.commentContainer{
+    flex-grow:1;
+
+    padding:10px;
+
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:start;
+    gap:20px;
+}
+
+
+/************** Comment ****************/
+.comment{
+    background-color: rgba(206, 206, 206, 0.9);
+    border-radius:5px;
+    border:2px solid  rgba(88, 88, 88, 0.8);
+    padding:5px;
+
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    gap:5px;
+}
+
+
+.header{
+    font-size:0.8em;
+}
+
+.body{
+    background-color:rgba(255, 255, 255, 0.8);
+    padding:5px;
+    border-radius:5px;
+    word-break: break-word;
+
+}
+
+.comment button{
+    width:max-content;
+    align-self:flex-end;
+    font-size:0.8em;
+    background-color:rgba(247, 194, 144, 0.8);
+    color:rgb(70, 59, 59); 
+    border:1px solid rgba(63, 63, 63, 0.4);
+    padding:5px;
+    border-radius:5px;
+    outline:0px;
+}
+
+.comment button.hide{
+    background-color:rgba(247, 194, 144, 0.267);
+    color:rgba(134, 121, 121, 0.829); 
+}
+
+/************** Responsive Style ****************/
+
+:global(body.desktop) :global(.commentContainer):nth-of-type(1) {
+    height:calc( 100vh - 400px);
+    overflow-y:auto; 
+}

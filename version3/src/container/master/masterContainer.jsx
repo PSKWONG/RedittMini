@@ -1,5 +1,5 @@
 //Import External modules 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 //Import Internal Modules 
 import useResponsiveLayout from './hook/useResponsiveController';
@@ -14,17 +14,20 @@ const MasterPageComponent = () => {
 
     //Page information 
     const [pageReference, setPageReference] = useState();
+    const [pageDetail, setPageDetail] = useState(null);
     const [keywords, setKeywords] = useState();
 
     //Export Data 
     const pageInfoData = {
         data: {
             pageReference,
-            keywords
+            keywords,
+            pageDetail
         },
         actions: {
             setPageReference,
-            setKeywords
+            setKeywords,
+            setPageDetail
         }
     }
 

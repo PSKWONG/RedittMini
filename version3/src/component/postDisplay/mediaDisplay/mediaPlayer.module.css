@@ -1,0 +1,27 @@
+/* Media Player */
+
+.mediaWrapper {
+    background-color: black;
+    overflow: hidden;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.mediaWrapper video,
+.mediaWrapper img {
+    max-height: 30vh;
+    max-width: 60vw;
+}
+
+.postDetail video,
+.postDetail img {
+    max-height: 60vh;
+    max-width: 90vw;
+}

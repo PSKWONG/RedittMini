@@ -24,8 +24,10 @@ const MasterPage = () => {
                 <Menu />
 
             </div>
-            <div className="contentWrapper">
-                <Outlet />
+            <div className="contentContainer">
+                <div className="contentWrapper">
+                    <Outlet />
+                </div>
             </div>
             
         </>
