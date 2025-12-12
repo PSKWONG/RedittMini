@@ -11,11 +11,16 @@ const commentFetch = async (req, context) => {
         const postID = urlParams.get("id");
 
         //Fetch Information from Redit 
-        const baseURL = `https://www.reddit.com`;
-        const query = `/comments/${postID}.json`;
+        //const baseURL = `https://www.reddit.com`;
+        //const query = `/comments/${postID}.json`;
 
-        const response = await fetch(`${baseURL}${query}` , {
-            headers:{
+        // --- TEMPORARY TEST LINES ---
+        const baseURL = `https://www.reddit.com`;
+        const query = `/r/popular/top.json?limit=1`; // Fetches the top single post from r/popular
+        // --- END TEMPORARY TEST LINES ---
+
+        const response = await fetch(`${baseURL}${query}`, {
+            headers: {
                 "User-Agent": "nodejs:reditmini:v1.0 (by /u/Least_Imagination355)"
             }
         });
@@ -36,7 +41,7 @@ const commentFetch = async (req, context) => {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
-                
+
             }
         });
 
@@ -44,7 +49,7 @@ const commentFetch = async (req, context) => {
 
         console.log(
             `Error in Reddit Fetching 
-                # Error: ${JSON.stringify(err, 2, 0 )}
+                # Error: ${JSON.stringify(err, 2, 0)}
             `
         )
 
