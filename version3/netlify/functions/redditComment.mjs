@@ -14,7 +14,11 @@ const commentFetch = async (req, context) => {
         const baseURL = `https://www.reddit.com`;
         const query = `/comments/${postID}.json`;
 
-        const response = await fetch(`${baseURL}${query}`);
+        const response = await fetch(`${baseURL}${query}` , {
+            headers:{
+                "User-Agent": "nodejs:reditmini:v1.0 (by /Edward/Least_Imagination355)"
+            }
+        });
         const data = await response.json();
 
         //The comment located at the second object of the response
@@ -24,8 +28,8 @@ const commentFetch = async (req, context) => {
             status: 200,
             headers: {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json",
-                "User-Agent": "nodejs:reditmini:v1.0 (by developer)"
+                "Content-Type": "application/json"
+                
             }
         });
 
