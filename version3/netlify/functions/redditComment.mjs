@@ -24,7 +24,8 @@ const commentFetch = async (req, context) => {
             status: 200,
             headers: {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "User-Agent": "web:reditmini:v1.0 (by developer)"
             }
         });
 
