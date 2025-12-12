@@ -17,6 +17,9 @@ const reditFetch = async (req, context) => {
         const query = type === "searching" ? `/search.json?q=${encodeURIComponent(keyword)}` : `/r/${keyword}/.json`;
 
         const response = await fetch(`${baseURL}${query}`);
+        if (!response.ok) {
+            throw new Error(`Reddit API returned ${response.status}`);
+        }
         const data = await response.json();
         const pageData = data?.data?.children
 
@@ -30,11 +33,7 @@ const reditFetch = async (req, context) => {
 
     } catch (err) {
 
-        console.log(
-            `Error in Reddit Fetching 
-                # Error: ${JSON.stringify(err, 2, 0 )}
-            `
-        )
+        console.error("Error in Reddit Fetching:", err.message, err.stack);
 
         return new Response(JSON.stringify({ error: err.message }), {
             status: 500,
