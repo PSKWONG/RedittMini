@@ -11,6 +11,8 @@
     flex-wrap:nowrap;
     justify-content:start;
     gap:20px;
+
+    
 }
 
 
@@ -59,7 +61,8 @@
 
 /************** Responsive Style ****************/
 
-:global(body.desktop) :global(.commentContainer):nth-of-type(1) {
-    height:calc( 100vh - 400px);
-    overflow-y:auto; 
+:global(body.desktop .header) + *,
+:global(body.tablet .header) + *{
+    height: calc(100vh - 400px) !important;
+    overflow-y: auto !important; 
 }
