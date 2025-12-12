@@ -16,7 +16,7 @@ const commentFetch = async (req, context) => {
 
         const response = await fetch(`${baseURL}${query}` , {
             headers:{
-                "User-Agent": "nodejs:reditmini:v1.0 (by /Edward/Least_Imagination355)"
+                "User-Agent": "nodejs:reditmini:v1.0 (by /u/Least_Imagination355)"
             }
         });
         const data = await response.json();
