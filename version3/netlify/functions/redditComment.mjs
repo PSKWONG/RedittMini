@@ -19,6 +19,13 @@ const commentFetch = async (req, context) => {
                 "User-Agent": "nodejs:reditmini:v1.0 (by /u/Least_Imagination355)"
             }
         });
+
+        //Secondary Improvement: Check for HTTP errors like 403
+        if (!response.ok) {
+            // This will throw an error that your catch block can read more cleanly
+            throw new Error(`Reddit API returned ${response.status} Error: ${response.statusText || 'Forbidden'}`);
+        }
+
         const data = await response.json();
 
         //The comment located at the second object of the response
