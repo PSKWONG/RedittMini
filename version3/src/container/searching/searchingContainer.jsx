@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //Import Internal Modules 
-import SearchingComponent from '../../component/searching/SearchingComponent';
+import SearchingComponent from '../../component/searching/searchingComponent';
 import { MasterContext } from '../../container/master/data/masterContext';
 
 const SearchingContainer = () => {
