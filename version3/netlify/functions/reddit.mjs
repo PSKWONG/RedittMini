@@ -15,8 +15,10 @@ const reditFetch = async (req, context) => {
         //Fetch Information from Redit 
         const baseURL = `https://www.reddit.com`;
         const query = type === "searching" ? `/search.json?q=${encodeURIComponent(keyword)}` : `/r/${keyword}/.json`;
+        const apiKey = process.env.SCRAPERAPI_KEY;
+        const fetchURL = `https://api.scraperapi.com?api_key=${apiKey}&url=${baseURL}${query}`
 
-        const response = await fetch(`${baseURL}${query}`);
+        const response = await fetch(`${fetchURL}`);
         if (!response.ok) {
             throw new Error(`Reddit API returned ${response.status}`);
         }

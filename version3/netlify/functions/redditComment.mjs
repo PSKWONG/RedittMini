@@ -11,25 +11,15 @@ const commentFetch = async (req, context) => {
         const postID = urlParams.get("id");
 
         //Fetch Information from Redit 
-        //const baseURL = `https://www.reddit.com`;
-        //const query = `/comments/${postID}.json`;
-
-        // --- TEMPORARY TEST LINES ---
         const baseURL = `https://www.reddit.com`;
-        const query = `/r/popular/top.json?limit=1`; // Fetches the top single post from r/popular
-        // --- END TEMPORARY TEST LINES ---
+        const query = `/comments/${postID}.json`;
+        const apiKey = process.env.SCRAPERAPI_KEY;
+        const fetchURL = `https://api.scraperapi.com?api_key=${apiKey}&url=${baseURL}${query}`
 
-        const response = await fetch(`${baseURL}${query}`, {
-            headers: {
-                "User-Agent": "nodejs:reditmini:v1.0 (by /u/Least_Imagination355)"
-            }
-        });
 
-        //Secondary Improvement: Check for HTTP errors like 403
-        if (!response.ok) {
-            // This will throw an error that your catch block can read more cleanly
-            throw new Error(`Reddit API returned ${response.status} Error: ${response.statusText || 'Forbidden'}`);
-        }
+
+
+        const response = await fetch(`${fetchURL}`);
 
         const data = await response.json();
 
